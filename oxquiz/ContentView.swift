@@ -21,18 +21,10 @@ struct ContentView: View {
     var body: some View {
         // UI 구성 및 로직 작성 부분
         VStack {
-            Text("다음 수식은 맞을까요?")
+            Text(isGameFinish ? "문제를 다 풀었습니다.":"다음 수식은 맞을까요?")
                 .font(.largeTitle)
-                .opacity(isGameFinish ? 0 : 1)
-            Text("문제를 다 풀었습니다.")
-                .font(.largeTitle)
-                .opacity(isGameFinish ? 1 : 0)
             Spacer()
-            Text("\(number1[currentIndex]) \(calcChar[currentIndex]) \(number2[currentIndex]) = \(quizResult[currentIndex])")
-                .font(.largeTitle)
-                .opacity(isGameFinish ? 0 : 1)
-            Text("\(countCorrect * 10) 점")
-                .opacity(isGameFinish ? 1 : 0)
+            Text(isGameFinish ? "\(countCorrect * 10) 점": "\(number1[currentIndex]) \(calcChar[currentIndex] == "*" ? "x" : calcChar[currentIndex]) \(number2[currentIndex]) = \(quizResult[currentIndex])")
                 .font(.largeTitle)
             Spacer()
             HStack {
