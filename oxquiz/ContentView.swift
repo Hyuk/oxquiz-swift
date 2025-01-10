@@ -64,6 +64,7 @@ struct ContentView: View {
         countCorrect = 0
         countWrong = 0
         currentIndex = 0
+        isGameFinish = false
     }
     
     func selectCorrect() {
