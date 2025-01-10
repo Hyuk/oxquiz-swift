@@ -21,9 +21,19 @@ struct ContentView: View {
     var body: some View {
         // UI 구성 및 로직 작성 부분
         VStack {
-            Text("다음 수식은 맞을까요?").font(.largeTitle)
+            Text("다음 수식은 맞을까요?")
+                .font(.largeTitle)
+                .opacity(isGameFinish ? 0 : 1)
+            Text("문제를 다 풀었습니다.")
+                .font(.largeTitle)
+                .opacity(isGameFinish ? 1 : 0)
             Spacer()
-            Text("\(number1[currentIndex]) \(calcChar[currentIndex]) \(number2[currentIndex]) = \(quizResult[currentIndex])").font(.largeTitle)
+            Text("\(number1[currentIndex]) \(calcChar[currentIndex]) \(number2[currentIndex]) = \(quizResult[currentIndex])")
+                .font(.largeTitle)
+                .opacity(isGameFinish ? 0 : 1)
+            Text("\(countCorrect * 10) 점")
+                .opacity(isGameFinish ? 1 : 0)
+                .font(.largeTitle)
             Spacer()
             HStack {
                 Spacer()
@@ -45,9 +55,11 @@ struct ContentView: View {
             Spacer()
             HStack {
                 Spacer()
-                Text("\(countCorrect)개 맞춤").font(.largeTitle)
+                Text("\(countCorrect)개 맞춤")
+                    .font(.largeTitle)
                 Spacer()
-                Text("\(countWrong)개 틀림").font(.largeTitle)
+                Text("\(countWrong)개 틀림")
+                    .font(.largeTitle)
                 Spacer()
             }
             Spacer()
